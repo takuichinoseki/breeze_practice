@@ -61,3 +61,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+// Route::middleware(['auth', 'can:access-admin'])->group(function () {
+    // 管理者専用のルートをここに追加
+    // 管理者用のページは作れてないので例を作り、コメントアウト
+    // 例: Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+// });
