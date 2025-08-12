@@ -12,14 +12,18 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    // 登録フォームを表示のみ
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
+    // 登録フォームにて入力後の処理
     Route::post('register', [RegisteredUserController::class, 'store']);
 
+    // ログインページの表示
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
+    // ログイン時の処理
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
